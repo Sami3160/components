@@ -1,0 +1,35 @@
+<DateRange
+                editableDateInputs={true}
+                months={2}
+                direction="horizontal"
+                minDate={new Date()}
+                maxDate={
+                  new Date(new Date().setDate(new Date().getDate() + 30))
+                } // disable dates more than 30 days from now
+                onChange={(item) => setDate([item.selection])}
+                moveRangeOnFirstSelection={false}
+                ranges={date}
+              />
+
+
+const [dateNext, setDateNext] = useState(() => {
+    const currentDate = new Date();
+    currentDate.setDate(currentDate.getDate() + 2);
+    return currentDate.toLocaleDateString("en-US", {
+      year: "numeric",
+      month: "short",
+      day: "numeric",
+    });
+  });
+
+    const [isOpen, setIsOpen] = useState(false);//ac non ac selection hook
+  const [showDate, setShowDate] = useState(false);//date picker hook
+  const [showPersonCount, setShowPersonCount] = useState(false);//person count hook
+
+
+  const [selectedOption, setSelectedOption] = useState("");
+  const [dateNow, setDateNow] = useState(new Date().toLocaleDateString("en-US", {
+    year: "numeric",
+    month: "short",
+    day: "numeric",
+  }));  
